@@ -1,12 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_web_admin_panel_2/models/recent_file.dart';
 
 import '../../constants.dart';
 import '../../responsive.dart';
 import 'components/chart.dart';
 import 'components/header.dart';
 import 'components/my_files.dart';
+import 'components/recent_files.dart';
 import 'components/storage_details.dart';
 import 'components/storage_info_card.dart';
 
@@ -26,7 +28,13 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: CustomMyFiles(),
+                  child: Column(
+                    children: [
+                      CustomMyFiles(),
+                      SizedBox(height: AppStyles.defaultPadding,),
+                      CustomRecentFiles()
+                    ],
+                  ),
                 ),
                 SizedBox(width: AppStyles.defaultPadding,),
                 Expanded(
@@ -41,7 +49,6 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-
 
 
 
