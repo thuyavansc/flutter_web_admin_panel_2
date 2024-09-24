@@ -1,9 +1,13 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 import '../../responsive.dart';
+import 'components/chart.dart';
 import 'components/header.dart';
+import 'components/storage_details.dart';
+import 'components/storage_info_card.dart';
 
 
 class DashboardScreen extends StatelessWidget {
@@ -17,6 +21,7 @@ class DashboardScreen extends StatelessWidget {
             CustomHeader(),
             SizedBox(height: AppStyles.defaultPadding,),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   flex: 5,
@@ -28,10 +33,7 @@ class DashboardScreen extends StatelessWidget {
                 SizedBox(width: AppStyles.defaultPadding,),
                 Expanded(
                   flex: 2,
-                  child: Container(
-                    height: 500,
-                    color: AppStyles.primaryColor,
-                  ),
+                  child: CustomStorageDetails(),
                 )
               ],
             )
@@ -41,5 +43,6 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+
 
 
