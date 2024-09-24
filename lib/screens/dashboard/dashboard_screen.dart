@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 import '../../responsive.dart';
+import 'components/header.dart';
 
 
 class DashboardScreen extends StatelessWidget {
@@ -13,7 +14,27 @@ class DashboardScreen extends StatelessWidget {
         padding: EdgeInsets.all(AppStyles.defaultPadding),
         child: Column(
           children: [
-            CustomHeader()
+            CustomHeader(),
+            SizedBox(height: AppStyles.defaultPadding,),
+            Row(
+              children: [
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    height: 500,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(width: AppStyles.defaultPadding,),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: 500,
+                    color: AppStyles.primaryColor,
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
@@ -21,88 +42,4 @@ class DashboardScreen extends StatelessWidget {
   }
 }
 
-class CustomHeader extends StatelessWidget {
-  const CustomHeader({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge,),
-        Spacer(),
-        Expanded(
-          child: CustomSearchField(),
-        ),
-        CustomProfileCard()
-      ],
-    );
-  }
-}
-
-class CustomProfileCard extends StatelessWidget {
-  const CustomProfileCard({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: AppStyles.defaultPadding),
-      padding: EdgeInsets.symmetric(
-          horizontal: AppStyles.defaultPadding,
-          vertical: AppStyles.defaultPadding/2
-      ),
-      decoration: BoxDecoration(
-        color: AppStyles.secondaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(10),),
-        border: Border.all(color: Colors.white10),
-      ),
-      child: Row(
-        children: [
-          Image.asset('images/profile_pic.png', height:38),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2,),
-            child: Text('Mark Mohan'),
-          ),
-          Icon(Icons.keyboard_arrow_down),
-
-        ],
-      ),
-    );
-  }
-}
-
-class CustomSearchField extends StatelessWidget {
-  const CustomSearchField({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: "Search",
-        fillColor: AppStyles.secondaryColor,
-        filled: true,
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(10))
-        ),
-        suffixIcon: InkWell(
-          onTap: (){},
-          child: Container(
-            padding: EdgeInsets.all(AppStyles.defaultPadding*0.75),
-            margin: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2, ),
-            decoration: BoxDecoration(
-              color: AppStyles.primaryColor,
-              borderRadius: BorderRadius.all(Radius.circular(10))
-            ),
-            child: SvgPicture.asset('icons/Search.svg'),
-          ),
-        )
-      ),
-    );
-  }
-}
