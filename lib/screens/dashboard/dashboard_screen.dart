@@ -6,6 +6,7 @@ import '../../constants.dart';
 import '../../responsive.dart';
 import 'components/chart.dart';
 import 'components/header.dart';
+import 'components/my_files.dart';
 import 'components/storage_details.dart';
 import 'components/storage_info_card.dart';
 
@@ -25,10 +26,7 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: Container(
-                    height: 500,
-                    color: Colors.white,
-                  ),
+                  child: CustomMyFiles(),
                 ),
                 SizedBox(width: AppStyles.defaultPadding,),
                 Expanded(
@@ -43,6 +41,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+
 
 
 
