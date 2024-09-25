@@ -32,15 +32,22 @@ class DashboardScreen extends StatelessWidget {
                     children: [
                       CustomMyFiles(),
                       SizedBox(height: AppStyles.defaultPadding,),
-                      CustomRecentFiles()
+                      CustomRecentFiles(),
+                      if(Responsive.isMobile(context))
+                        SizedBox(height: AppStyles.defaultPadding,),
+                      if(Responsive.isMobile(context))
+                        CustomStorageDetails()
                     ],
                   ),
                 ),
-                SizedBox(width: AppStyles.defaultPadding,),
-                Expanded(
+                if(!Responsive.isMobile(context))
+                  SizedBox(width: AppStyles.defaultPadding,),
+                //on Mobile screen - < 850
+                if(!Responsive.isMobile(context))
+                  Expanded(
                   flex: 2,
                   child: CustomStorageDetails(),
-                )
+                  )
               ],
             )
           ],

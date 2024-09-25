@@ -2,8 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_web_admin_panel_2/controllers/menu_app_controller.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../../../responsive.dart';
 
 class CustomHeader extends StatelessWidget {
   const CustomHeader({
@@ -14,8 +17,15 @@ class CustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,),),
-        Spacer(flex: 2,),
+        if(!Responsive.isDesktop(context))
+          IconButton(
+            onPressed: context.read<MenuAppController>().controlMenu,
+            icon: Icon(Icons.menu)
+          ),
+        if(!Responsive.isMobile(context))
+          Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,),),
+        if(!Responsive.isMobile(context))
+          Spacer(flex: Responsive.isDesktop(context) ? 2 :1,),
         Expanded(
           child: CustomSearchField(),
         ),
@@ -46,10 +56,11 @@ class CustomProfileCard extends StatelessWidget {
       child: Row(
         children: [
           Image.asset('images/profile_pic.png', height:38),
-          Padding(
+          if(!Responsive.isMobile(context))
+            Padding(
             padding: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2,),
             child: Text('Mark Mohan'),
-          ),
+            ),
           Icon(Icons.keyboard_arrow_down),
 
         ],
