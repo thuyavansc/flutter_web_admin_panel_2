@@ -8,7 +8,7 @@ class AppThemes {
   static final ThemeData blueTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: Colors.blue,
-    scaffoldBackgroundColor: AppStyles.bgColor,
+    //scaffoldBackgroundColor: AppStyles.bgColor,//Dashboard bg color
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple).copyWith(surface: Colors.white,),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blueAccent,
@@ -20,6 +20,7 @@ class AppThemes {
         headerFontColor: Colors.white,
         headerBackgroundColor: Colors.blue,
         profilePicBorderColor: Colors.blueGrey,
+        drawerBackgroundColor : Colors.blue,
       ),
     ],
   );
@@ -39,6 +40,7 @@ class AppThemes {
         headerFontColor: Colors.black,
         headerBackgroundColor: Colors.lightGreen,
         profilePicBorderColor: Colors.greenAccent,
+        drawerBackgroundColor: Colors.greenAccent,
       ),
     ],
   );
@@ -58,6 +60,7 @@ class AppThemes {
         headerFontColor: Colors.white,
         // Missing headerBackgroundColor, will use default
         profilePicBorderColor: Colors.purpleAccent,
+        drawerBackgroundColor: Colors.purpleAccent,
       ),
     ],
   );
@@ -73,6 +76,7 @@ class AppThemes {
     extensions: const <ThemeExtension<dynamic>>[
       CustomColors(
         buttonBoxColor: Colors.orange,
+        drawerBackgroundColor: Colors.orange,
         // Missing other custom colors, will use default
       ),
     ],

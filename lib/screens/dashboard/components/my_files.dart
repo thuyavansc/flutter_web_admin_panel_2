@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_web_admin_panel_2/models/my_files.dart';
 
 import '../../../constants.dart';
+import '../../../core/theme/custom_colors.dart';
 import '../../../responsive.dart';
 import 'file_info_card.dart';
 
@@ -16,12 +17,14 @@ class CustomMyFiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('My Files', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),),
+            Text('My Files', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: customColors!.bodyPrimaryTextColor),),
             //ElevatedButton.icon(onPressed: () {}, label: Text('Add New') , icon: Icon(Icons.add), style: TextButton.styleFrom( padding: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding*1.5, vertical: AppStyles.defaultPadding)), ),
             ElevatedButton.icon(
               onPressed: () {},
@@ -33,7 +36,7 @@ class CustomMyFiles extends StatelessWidget {
                     vertical:
                     AppStyles.defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
                 ),
-                backgroundColor: AppStyles.primaryColor, // Set the button background color
+                backgroundColor: Theme.of(context).primaryColor, // Set the button background color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4), // Small radius for square-like edges
                 ),

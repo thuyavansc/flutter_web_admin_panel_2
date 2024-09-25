@@ -52,6 +52,7 @@ class CustomProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Container(
       margin: EdgeInsets.only(left: AppStyles.defaultPadding),
       padding: EdgeInsets.symmetric(
@@ -69,7 +70,7 @@ class CustomProfileCard extends StatelessWidget {
           if(!Responsive.isMobile(context))
             Padding(
             padding: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2,),
-            child: Text('Mark Mohan'),
+            child: Text('Mark Mohan', style:  TextStyle(color: customColors?.bodyPrimaryTextColor)),
             ),
           Icon(Icons.keyboard_arrow_down),
 
@@ -86,9 +87,11 @@ class CustomSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return TextField(
       decoration: InputDecoration(
           hintText: "Search",
+          hintStyle: TextStyle(color: customColors?.bodyPrimaryTextColor),
           fillColor: AppStyles.secondaryColor,
           filled: true,
           border: OutlineInputBorder(
@@ -101,7 +104,7 @@ class CustomSearchField extends StatelessWidget {
               padding: EdgeInsets.all(AppStyles.defaultPadding*0.75),
               margin: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2, ),
               decoration: BoxDecoration(
-                  color: AppStyles.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(10))
               ),
               child: SvgPicture.asset('icons/Search.svg'),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
+import '../../../core/theme/custom_colors.dart';
 import '../../../models/my_files.dart';
 
 class CustomFileInfoCard extends StatelessWidget {
@@ -16,10 +17,13 @@ class CustomFileInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Container(
       padding: EdgeInsets.all(AppStyles.defaultPadding),
       decoration: BoxDecoration(
           color: AppStyles.secondaryColor,
+          //color: customColors?.cardPrimaryBgColor.withOpacity(0.9),
           borderRadius: BorderRadius.all(Radius.circular(10))
       ),
       child: Column(
@@ -34,21 +38,21 @@ class CustomFileInfoCard extends StatelessWidget {
                 height: 40,
                 width: 40,
                 decoration: BoxDecoration(
-                    color: info.color?.withOpacity(0.1),
+                    color: info.color?.withOpacity(0.4),
                     borderRadius: BorderRadius.all(Radius.circular(10))
                 ),
                 child: SvgPicture.asset(info.svgSrc!, color: info.color,),
               ),
-              Icon(Icons.more_vert, color: Colors.white54, )
+              Icon(Icons.more_vert, color: customColors?.bodyPrimaryTextColor, )
             ],
           ),
-          Text(info.title!, maxLines: 1, overflow: TextOverflow.ellipsis,),
+          Text(info.title!, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: customColors?.bodyPrimaryTextColor)),
           CustomProgressLine(info: info),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('${info.numOfFiles} Files', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70),),
-              Text(info.totalStorage!, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white),),
+              Text('${info.numOfFiles} Files', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: customColors?.bodyPrimaryTextColor),),
+              Text(info.totalStorage!, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: customColors?.bodyPrimaryTextColor),),
             ],
           ),
         ],

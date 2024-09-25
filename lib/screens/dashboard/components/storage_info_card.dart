@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
+import '../../../core/theme/custom_colors.dart';
 
 class CustomStorageInfoCard extends StatelessWidget {
   const CustomStorageInfoCard({
@@ -18,6 +19,8 @@ class CustomStorageInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Container(
       margin: EdgeInsets.only(top: AppStyles.defaultPadding),
       padding: EdgeInsets.all(AppStyles.defaultPadding),
@@ -38,13 +41,13 @@ class CustomStorageInfoCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, maxLines: 1, overflow: TextOverflow.ellipsis,),
-                    Text('$numofFiles Files', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white70),),
+                    Text(title, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: customColors?.bodyPrimaryTextColor),),
+                    Text('$numofFiles Files', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: customColors?.bodyPrimaryTextColor.withOpacity(0.7)),),
                   ],
                 ),
               )
           ),
-          Text(amountOfFiles),
+          Text(amountOfFiles, style: TextStyle(color: customColors?.bodyPrimaryTextColor.withOpacity(0.5))),
         ],
       ),
     );

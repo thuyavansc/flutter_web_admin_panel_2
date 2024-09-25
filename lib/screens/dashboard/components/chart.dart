@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../core/theme/custom_colors.dart';
 
 class CustomChart extends StatelessWidget {
   const CustomChart({
@@ -12,6 +13,8 @@ class CustomChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return SizedBox(
       height: 200,
       child: Stack(
@@ -29,9 +32,9 @@ class CustomChart extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(height: AppStyles.defaultPadding,),
-                    Text('29.1', style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.w600, height: 0.5),),
+                    Text('29.1', style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: customColors?.bodyPrimaryTextColor, fontWeight: FontWeight.w600, height: 0.5),),
                     SizedBox(height: AppStyles.defaultPadding/2,),
-                    Text('of 128GB'),
+                    Text('of 128GB', style: TextStyle(color: customColors?.bodyPrimaryTextColor),),
                   ],
                 )
             ),

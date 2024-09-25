@@ -16,7 +16,7 @@ class CustomSideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final customColors = Theme.of(context).extension<CustomColors>();
     return Drawer(
-      backgroundColor:customColors?.headerBackgroundColor,
+      backgroundColor:customColors?.drawerBackgroundColor,
       // for enable scrolling
       child: SingleChildScrollView(
         child: Column(
@@ -35,41 +35,49 @@ class CustomSideMenu extends StatelessWidget {
                   ),
                 );
               },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Transaction',
               svgSrc: 'icons/menu_tran.svg',
               press: () { print('Transaction'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Task',
               svgSrc: 'icons/menu_task.svg',
               press: () { print('Transaction'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Documents',
               svgSrc: 'icons/menu_doc.svg',
               press: () { print('Documents'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Store',
               svgSrc: 'icons/menu_store.svg',
               press: () { print('Store'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Notification',
               svgSrc: 'icons/menu_notification.svg',
               press: () { print('Notification'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Profile',
               svgSrc: 'icons/menu_profile.svg',
               press: () { print('Profile'); },
+              titleColor: customColors!.drawerTextColor,
             ),
             CustomDrawerListTile(
               title: 'Settings',
               svgSrc: 'icons/menu_setting.svg',
               press: () { print('Settings'); },
+              titleColor: customColors!.drawerTextColor,
             ),
           ],
         ),
@@ -83,10 +91,11 @@ class CustomDrawerListTile extends StatelessWidget {
     super.key,
     required this.title,
     required this.svgSrc,
-    required this.press,
+    required this.press, required this.titleColor,
   });
   final String title,svgSrc;
   final VoidCallback press;
+  final Color titleColor;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -94,13 +103,13 @@ class CustomDrawerListTile extends StatelessWidget {
       onTap: press,
       leading: SvgPicture.asset(
         svgSrc,
-        color: Colors.white54,
+        color: titleColor,
         height: 16,
       ),
       title: Text(
         title,
-        style: const TextStyle(
-            color: Colors.white54
+        style: TextStyle(
+            color: titleColor,
         ),
       ),
       //hoverColor: Colors.blue[200],
