@@ -12,8 +12,8 @@ const _defaultPadding = 16.0;
 
 
 class AppStyles {
-  static Color primaryColor = _primaryColor;
-  static Color secondaryColor = _secondaryColor;
-  static Color bgColor = _bgColor;
-  static double defaultPadding = _defaultPadding;
+  static const Color primaryColor = _primaryColor;
+  static const Color secondaryColor = _secondaryColor;
+  static const Color bgColor = _bgColor;
+  static const double defaultPadding = _defaultPadding;
 }

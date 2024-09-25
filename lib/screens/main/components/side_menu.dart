@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../core/theme/custom_colors.dart';
+import '../../settings/settings_screen.dart';
+
 class CustomSideMenu extends StatelessWidget {
   const CustomSideMenu({
     super.key,
@@ -11,7 +14,9 @@ class CustomSideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Drawer(
+      backgroundColor:customColors?.headerBackgroundColor,
       // for enable scrolling
       child: SingleChildScrollView(
         child: Column(
@@ -22,7 +27,14 @@ class CustomSideMenu extends StatelessWidget {
             CustomDrawerListTile(
               title: 'Dashboard',
               svgSrc: 'icons/menu_dashboard.svg',
-              press: () { print('Dashboard'); },
+              press: () {
+                print('Dashboard');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+              },
             ),
             CustomDrawerListTile(
               title: 'Transaction',

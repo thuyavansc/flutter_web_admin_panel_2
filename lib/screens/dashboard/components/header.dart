@@ -6,6 +6,7 @@ import 'package:flutter_web_admin_panel_2/controllers/menu_app_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../../../core/theme/custom_colors.dart';
 import '../../../responsive.dart';
 
 class CustomHeader extends StatelessWidget {
@@ -15,6 +16,7 @@ class CustomHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Row(
       children: [
         if(!Responsive.isDesktop(context))
@@ -30,7 +32,8 @@ class CustomHeader extends StatelessWidget {
             },
           ),
         if(!Responsive.isMobile(context))
-          Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,),),
+          //Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,),),
+          Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: customColors?.headerBackgroundColor,),),
         if(!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 :1,),
         Expanded(
