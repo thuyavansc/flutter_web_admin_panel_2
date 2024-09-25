@@ -22,6 +22,13 @@ class CustomHeader extends StatelessWidget {
             onPressed: context.read<MenuAppController>().controlMenu,
             icon: Icon(Icons.menu)
           ),
+        if (Responsive.isDesktop(context))  // For desktop screens, toggle side menu
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              context.read<MenuAppController>().toggleSideMenu();  // Toggles side menu visibility
+            },
+          ),
         if(!Responsive.isMobile(context))
           Text('Dashboard', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,),),
         if(!Responsive.isMobile(context))
@@ -55,7 +62,7 @@ class CustomProfileCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset('images/profile_pic.png', height:38),
+          Image.asset('images/avatar2.png', height:38),
           if(!Responsive.isMobile(context))
             Padding(
             padding: EdgeInsets.symmetric(horizontal: AppStyles.defaultPadding/2,),

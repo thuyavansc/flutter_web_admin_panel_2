@@ -4,6 +4,10 @@ const _primaryColor = Color(0xFF2697FF);
 const _secondaryColor = Color(0xFF2A2D3E);
 const _bgColor = Color(0xFF212332);
 
+// const _primaryColor = Color(0xFF029F9D);
+// const _secondaryColor = Color(0xFF0074AA);
+// const _bgColor = Color(0xFFECEFF0);
+
 const _defaultPadding = 16.0;
 
 
