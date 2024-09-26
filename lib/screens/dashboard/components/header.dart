@@ -6,7 +6,7 @@ import 'package:flutter_web_admin_panel_2/controllers/menu_app_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
-import '../../../core/theme/custom_colors.dart';
+import '../../../config/theme/custom_colors.dart';
 import '../../../responsive.dart';
 
 class CustomHeader extends StatelessWidget {

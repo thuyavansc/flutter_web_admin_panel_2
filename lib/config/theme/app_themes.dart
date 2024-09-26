@@ -9,6 +9,7 @@ class AppThemes {
     brightness: Brightness.light,
     primaryColor: Colors.blue,
     //scaffoldBackgroundColor: AppStyles.bgColor,//Dashboard bg color
+    scaffoldBackgroundColor: AppStyles.thirdColor,//Dashboard bg color
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple).copyWith(surface: Colors.white,),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blueAccent,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
-import '../../../core/theme/custom_colors.dart';
+import '../../../config/theme/custom_colors.dart';
 import '../../../models/recent_file.dart';
 
 class CustomRecentFiles extends StatelessWidget {

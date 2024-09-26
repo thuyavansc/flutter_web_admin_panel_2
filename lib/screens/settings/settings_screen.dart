@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../core/theme/app_themes.dart';
-import '../../core/theme/theme_notifier.dart';
+import '../../config/theme/app_themes.dart';
+import '../../config/theme/theme_notifier.dart';
 
 
 class SettingsScreen extends StatelessWidget {

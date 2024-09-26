@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_admin_panel_2/screens/dashboard/components/storage_info_card.dart';
 
 import '../../../constants.dart';
-import '../../../core/theme/custom_colors.dart';
+import '../../../config/theme/custom_colors.dart';
 import 'chart.dart';
 
 class CustomStorageDetails extends StatelessWidget {

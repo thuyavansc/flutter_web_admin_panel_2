@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/theme/custom_colors.dart';
+import '../../../config/route/app_route.dart';
+import '../../../config/theme/custom_colors.dart';
 import '../../settings/settings_screen.dart';
 
 class CustomSideMenu extends StatelessWidget {
@@ -29,11 +30,6 @@ class CustomSideMenu extends StatelessWidget {
               svgSrc: 'icons/menu_dashboard.svg',
               press: () {
                 print('Dashboard');
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                );
               },
               titleColor: customColors!.drawerTextColor,
             ),
@@ -76,7 +72,10 @@ class CustomSideMenu extends StatelessWidget {
             CustomDrawerListTile(
               title: 'Settings',
               svgSrc: 'icons/menu_setting.svg',
-              press: () { print('Settings'); },
+              press: () {
+                print('Settings');
+                AppRouter.goToSettings(context);
+              },
               titleColor: customColors!.drawerTextColor,
             ),
           ],

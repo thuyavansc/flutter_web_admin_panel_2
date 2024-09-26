@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
-import '../../../core/theme/custom_colors.dart';
+import '../../../config/theme/custom_colors.dart';
 
 class CustomChart extends StatelessWidget {
   const CustomChart({

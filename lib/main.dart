@@ -3,9 +3,10 @@ import 'package:flutter_web_admin_panel_2/screens/main/main_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'config/route/app_route.dart';
 import 'constants.dart';
 import 'controllers/menu_app_controller.dart';
-import 'core/theme/theme_notifier.dart';
+import 'config/theme/theme_notifier.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -56,11 +57,12 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<ThemeNotifier>(
         builder: (context, themeNotifier, child) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Admin Panel',
             theme: themeNotifier.currentTheme,  // Apply dynamic theme from ThemeNotifier
-            home: MainScreen(),
+            routerConfig: AppRouter.router,
+            //home: MainScreen(),
           );
         },
       ),
